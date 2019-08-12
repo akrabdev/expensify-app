@@ -7,4 +7,5 @@ const store = createStore((state = {count: 0}) => {
 
 
 
-console.log(store.getState());
+console.log(store.getState()); 
+
