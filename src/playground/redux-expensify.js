@@ -167,24 +167,44 @@ const store = createStore(
     }
     ));
 
+    const getVisibleExpenses = (expenses,{text, sortBy, startDate, endDate}) => {
+        return expenses.filter((expense) => {
+            const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate;
+            const endDateMatch = typeof endDate !== 'number' || expense.createdAt <= endDate;
+            const lowerCaseText = text.toLowerCase();
+            const lowerCaseDescription = expense.description.toLowerCase();
+            const textMatch= typeof text !== 'string' || lowerCaseDescription.includes(lowerCaseText);
+
+            return startDateMatch && endDateMatch && textMatch;
+        }).sort((a,b) =>{
+            if(sortBy === 'date')
+            return ( a.createdAt > b.createdAt ? -1:1 );
+
+            return (a.amount > b.amount ? -1:1);
+        });
+    };
+    
+
 store.subscribe(() => {
-    console.log(store.getState());
+    const state = store.getState();
+    const visibleExpenses = getVisibleExpenses(state.expenses,state.filters);
+   console.log(visibleExpenses);
 
 });
 
 
-// const expenseOne = store.dispatch(addExpense({ description: 'rent', amount: 100}));
-// store.dispatch(addExpense({ description: 'coffee', amount: 20}));
+
+
+
+const expenseOne = store.dispatch(addExpense({ description: 'rent', amount: 100, createdAt: 130}));
+store.dispatch(addExpense({ description: 'coffee rent', amount: 20, createdAt: 300}));
 // store.dispatch(removeExpense({ id: expenseOne.expense.id }));
 // store.dispatch(editExpense(expenseOne.expense.id,{amount: 5000}));
-// store.dispatch(setupTextFilter('rent'));
-// store.dispatch(sortByAmount());
-// store.dispatch(sortByDate());
-   store.dispatch(setStartDate('125'));
-   store.dispatch(setStartDate( ));
-
-   store.dispatch(setEndDate('200'));
-
+//  store.dispatch(sortByAmount());
+store.dispatch(sortByDate());
+//    store.dispatch(setStartDate(125));
+//    store.dispatch(setEndDate(200));
+  //  store.dispatch(setupTextFilter('rent'));
 
 
 
