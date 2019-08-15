@@ -57,22 +57,22 @@ const setEndDate = (date = undefined) => ({
 });
 
 
-const demoState = {
-    expenses: [{         
-        id: 'dasfhas',
-        description: 'jan rent',
-        notes:'this is the final payment for this address',
-        amount: 54500, //pennies reduces round,computational errors
-        createdAt: 0 // will be timeStamp
-    }],
+// const demoState = {
+//     expenses: [{         
+//         id: 'dasfhas',
+//         description: 'jan rent',
+//         notes:'this is the final payment for this address',
+//         amount: 54500, //pennies reduces round,computational errors
+//         createdAt: 0 // will be timeStamp
+//     }],
 
-    filters: {
-        text: 'rent',
-        sortBy: 'amount', //date or amount
-        startDate: undefined,
-        endDate: undefined
-    }
-};
+//     filters: {
+//         text: 'rent',
+//         sortBy: 'amount', //date or amount
+//         startDate: undefined,
+//         endDate: undefined
+//     }
+// };
 
 
 const expenseReducerDefaultState = [];
