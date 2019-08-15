@@ -38,4 +38,4 @@ const requiredAuthentication = (WrappedComponent) => {
 
 const AdminInfo = withAdminWarning(Info); // what we will get back another version of <Info />, going to be the HOC
 const AuthInfo = requiredAuthentication(Info);
-ReactDOM.render(<AuthInfo isAuthenticated={false} info="this is the detail" />,document.getElementById('app'));
+ReactDOM.render(<AuthInfo isAuthenticated={false  } info="this is the detail" />,document.getElementById('app'));
