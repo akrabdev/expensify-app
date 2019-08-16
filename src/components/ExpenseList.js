@@ -4,6 +4,7 @@ import ExpenseListItem from './ExpenseListItem';
 import getVisibleExpenses from '../selectors/expenses';
 
 
+
 const ExpenseList = (props) => (
     <div>
      <h1>Expense List</h1>
@@ -12,7 +13,9 @@ const ExpenseList = (props) => (
          key={expense.id} 
          expenseDesc={expense.description}
          expenseAmount={expense.amount}
-         expenseCreatedAt={expense.createdAt}  /> ;
+         expenseCreatedAt={expense.createdAt}
+         expenseId= {expense.id}
+         /> ;
     })}
     
     </div>
