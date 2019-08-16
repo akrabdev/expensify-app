@@ -11,19 +11,17 @@ import 'normalize.css/normalize.css';
 
 const store = configureStore();
 
-store.dispatch( addExpense({description: "water bill"}));
-store.dispatch(addExpense({description: "gas bill"}));
+store.dispatch( addExpense({description: "water bill", amount: 1000, createdAt: 20}));
+store.dispatch(addExpense({description: "gas bill", amount: 3000, createdAt: 70}));
 store.dispatch(addExpense({description: "rent"}));
 
 store.dispatch(setupTextFilter('bill'));
 const state = store.getState();
 
 
-console.log(getVisibleExpenses(state.expenses,state.filters));
-
 
 const jsx = (
-    <Provider>
+    <Provider store={store}>
      <AppRouter />
     </Provider>
 );
@@ -31,7 +29,7 @@ const jsx = (
 
 
 
-ReactDOM.render(, document.getElementById('app'));
+ReactDOM.render(jsx , document.getElementById('app'));
 
  
 
