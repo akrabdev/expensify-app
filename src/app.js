@@ -11,11 +11,11 @@ import 'normalize.css/normalize.css';
 
 const store = configureStore();
 
-store.dispatch( addExpense({description: "water bill", amount: 1000, createdAt: 20}));
+store.dispatch( addExpense({description: "water bill", amount: 11000, createdAt: 20}));
 store.dispatch(addExpense({description: "gas bill", amount: 3000, createdAt: 70}));
 store.dispatch(addExpense({description: "rent"}));
 
-store.dispatch(setupTextFilter('bill'));
+
 const state = store.getState();
 
 

@@ -8,18 +8,18 @@ import getVisibleExpenses from '../selectors/expenses';
 const ExpenseList = (props) => (
     <div>
      <h1>Expense List</h1>
-    {props.expenses.map((expense) =>{
-        return <ExpenseListItem
-         key={expense.id} 
-         expenseDesc={expense.description}
-         expenseAmount={expense.amount}
-         expenseCreatedAt={expense.createdAt}
-         expenseId= {expense.id}
-         /> ;
+    {props.expenses.map((expense) =>{ //expense is an object {...expense}=== {desc: 'rent' etc }
+        return <ExpenseListItem key={expense.id} {...expense}/> ;
     })}
     
     </div>
 );
+
+// key={expense.id} {...other}
+//          expenseDesc={expense.description}
+//          expenseAmount={expense.amount}
+//          expenseCreatedAt={expense.createdAt}
+//          expenseId= {expense.id}
 
 const mapStateToProps = state => ({
     expenses: getVisibleExpenses(state.expenses, state.filters) 
