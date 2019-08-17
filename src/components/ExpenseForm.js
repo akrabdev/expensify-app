@@ -1,11 +1,21 @@
 import React from 'react';
+import moment from 'moment';
+import {SingleDatePicker} from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+
+const now = moment() ; // we get instance of moment back , not passing to it anything will return current point of time 
+
+console.log(now.format());  // to get date out we use .format method without args year-month-day-time see docs
 
 export default class ExpenseForm extends React.Component {
 
     state = {
         description: '',
         note: '',
-        amount: ''
+        amount: '',
+        createdAt: moment(),
+        focused: false,
+        error: ''
     };
 
      onDescriptionChange = (e) => {
@@ -20,16 +30,40 @@ export default class ExpenseForm extends React.Component {
 
     onAmountChange = (e) => {
         const amount = e.target.value;
-        if(amount.match(/^\d*(\.\d{0,2})?$/)) {
+        if(!amount ||amount.match(/^\d{1,}(\.\d{0,2})?$/)) {
         this.setState(() => ({amount}));
         };
     };
 
+    onDateChange = (createdAt) => {
+        if(createdAt)
+        this.setState(() => ({createdAt }));
+    };
+
+    onFocusChange = ({focused}) =>{
+         this.setState(() => ({focused}));
+    };
+
+    onSubmit = (e) => { 
+        e.preventDefault();
+
+        if(!this.state.description || !this.state.amount) {
+            this.setState(()=>({
+                error: 'please provide description and amount to continue'
+            })) ;
+        } else {
+            this.setState(()=>({error: ''}));
+        }
+
+    };
+
+
     render(){
         return (
             <div>
+            {this.state.error && <p>{this.state.error}</p>}
              <h1>Add Expense</h1>
-             <form>
+             <form onSubmit={this.onSubmit}>
               <input
                type="text"
                placeholder="Description"
@@ -42,6 +76,15 @@ export default class ExpenseForm extends React.Component {
                placeholder="Amount"
                value={this.state.amount}
                onChange={this.onAmountChange}
+              />
+
+              <SingleDatePicker
+               date={this.state.createdAt}
+               onDateChange={this.onDateChange}
+               focused={this.state.focused}
+               onFocusChange={this.onFocusChange}
+               numberOfMonths={1}
+               isOutsideRange={() => false}
               />
               <textarea
               placeholder="add a note for your expense (optional)"
