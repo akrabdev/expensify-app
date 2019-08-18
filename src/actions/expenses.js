@@ -8,7 +8,7 @@ export const addExpense = (
         createdAt = 0
      } = {}
         ) => ({
-        type: "ADD_EXPENSE",
+        type: 'ADD_EXPENSE',
         expense: {
             id: uuid(),
             description,
@@ -19,12 +19,12 @@ export const addExpense = (
     });
     
 export const removeExpense = ({id}) => ({
-        type: "REMOVE_EXPENSE",
+        type: 'REMOVE_EXPENSE',
         id
     });
     
 export const editExpense = (id, update) => ({
-        type: "EDIT_EXPENSE",
+        type: 'EDIT_EXPENSE',
         id,
         update
     });
