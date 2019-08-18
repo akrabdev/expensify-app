@@ -8,7 +8,8 @@ export default () => {
              //key is root state name and value is the reducer that suppose to manage that
              expenses: expensesReducer,
              filters: filtersReducer
-        })
+        }),
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     );
     return store;
         

@@ -2,6 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import ExpenseListItem from './ExpenseListItem';
 import getVisibleExpenses from '../selectors/expenses';
+import {Link} from 'react-router-dom';
 
 
 
@@ -9,7 +10,7 @@ const ExpenseList = (props) => (
     <div>
      <h1>Expense List</h1>
     {props.expenses.map((expense) =>{ //expense is an object {...expense}=== {desc: 'rent' etc }
-        return <ExpenseListItem key={expense.id} {...expense}/> ;
+        return  <ExpenseListItem key={expense.id} {...expense}/> ;
     })}
     
     </div>
