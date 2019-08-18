@@ -2,7 +2,9 @@
 test.js  file format : 
 function :
 */
-const add =(a,b) => a + b + 1;
+const add =(a,b) => a + b;
+
+const greeting = (name) => `Hello ${name}!`;
 
 /* 
 
@@ -14,7 +16,10 @@ function tested, checking on the function return using conditional logic if unex
 test('should add two number',() =>{
     const result = add(3,4);
 
-    if(result !== 7){
-        throw new Error(`You added 3 and 4. The result was ${result}. Expect 7` );
-    }
+    expect(result).toBe(7);
 });
+
+test('greet user',()=>{
+    const result = greeting('Mike');
+    expect(result).toBe('Hello Mike!');
+})
