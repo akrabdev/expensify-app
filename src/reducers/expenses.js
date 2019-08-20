@@ -1,5 +1,3 @@
-
-
 const expenseReducerDefaultState = [];
 
 const expensesReducer = (state = expenseReducerDefaultState, action) => {
