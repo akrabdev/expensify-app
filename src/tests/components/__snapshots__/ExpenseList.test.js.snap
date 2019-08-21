@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render ExpenseList with expenses 1`] = `
+<div>
+  <ExpenseListItem
+    amount={1500}
+    createdAt={"1970-01-01T00:00:00.000Z"}
+    description="coffee"
+    id="1"
+    key="1"
+    note=""
+  />
+  <ExpenseListItem
+    amount={75000}
+    createdAt={345600000}
+    description="rent"
+    id="2"
+    key="2"
+    note=""
+  />
+  <ExpenseListItem
+    amount={90000}
+    createdAt={-345600000}
+    description="car maintanence"
+    id="3"
+    key="3"
+    note="next checkup on 19/2/2020"
+  />
+</div>
+`;
+
+exports[`should render no items paragrph when no expenses array length = 0 1`] = `
+<div>
+  <p>
+    No items found
+  </p>
+</div>
+`;

@@ -6,13 +6,17 @@ import {Link} from 'react-router-dom';
 
 
 
-const ExpenseList = (props) => (
+export const ExpenseList = (props) => (
     <div>
-     <h1>Expense List</h1>
-    {props.expenses.map((expense) =>{ //expense is an object {...expense}=== {desc: 'rent' etc }
+    {
+        props.expenses.length === 0 ? (
+            <p>No items found</p>
+        ) : (
+            props.expenses.map((expense) =>{ 
         return  <ExpenseListItem key={expense.id} {...expense}/> ;
-    })}
-    
+    })
+        )
+    }
     </div>
 );
 
