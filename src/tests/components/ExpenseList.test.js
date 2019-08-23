@@ -9,7 +9,7 @@ test('should render ExpenseList with expenses', () => {
     expect(wrapper).toMatchSnapshot();
 });
 
-test('should render no items paragrph when no expenses array length = 0', () => {
+test('should render no items paragrph when  expenses array length = 0', () => {
     const wrapper = shallow(<ExpenseList expenses={[]} />);
     expect(wrapper).toMatchSnapshot();
 });

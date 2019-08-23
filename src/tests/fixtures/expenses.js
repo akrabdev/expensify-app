@@ -3,7 +3,7 @@ export default  [{
     id: '1',
     description: 'coffee',
     amount: 1500,
-    createdAt: moment(0),
+    createdAt: moment(0).valueOf(),
     note: ''
 }, {
     id: '2',

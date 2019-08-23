@@ -4,7 +4,7 @@ exports[`should render ExpenseList with expenses 1`] = `
 <div>
   <ExpenseListItem
     amount={1500}
-    createdAt={"1970-01-01T00:00:00.000Z"}
+    createdAt={0}
     description="coffee"
     id="1"
     key="1"
@@ -29,7 +29,7 @@ exports[`should render ExpenseList with expenses 1`] = `
 </div>
 `;
 
-exports[`should render no items paragrph when no expenses array length = 0 1`] = `
+exports[`should render no items paragrph when  expenses array length = 0 1`] = `
 <div>
   <p>
     No items found
