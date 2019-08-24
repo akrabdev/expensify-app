@@ -32,7 +32,7 @@ module.exports = (env) => {
               }
             },
             {
-              loader: 'scss-loader',
+              loader: 'sass-loader',
               options: {
                 sourceMap: true
               }
