@@ -2,22 +2,18 @@
 
 exports[`should render expense item from expenses array 1`] = `
 <div>
-  <h3>
-     
-    <Link
-      replace={false}
-      to="/edit/2"
-    >
+  <Link
+    replace={false}
+    to="/edit/2"
+  >
+    <h3>
       rent
-    </Link>
-     
-  </h3>
-   
+    </h3>
+  </Link>
   <p>
-     
-    75000
-     - 
-    345600000
+    $750.00
+    -
+    January 5th, 1970
   </p>
 </div>
 `;
