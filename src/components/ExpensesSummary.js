@@ -6,11 +6,14 @@ import getExpensesTotal from '../selectors/getExpensesTotal';
 
 
 export const ExpenseSummary = (props) => {
-    const myNumeral = numeral(getExpensesTotal(props.expenses) / 100).format('$0,0.00');
+    const formattedExpensesTotal = numeral(getExpensesTotal(props.expenses) / 100).format('$0,0.00');
    return( 
        <div> 
        {props.expenses.length === 0 ? <p>No Expenses found matching </p> 
-        : <p>Viewing {props.expenses.length} Expenses totaling {myNumeral}</p>} 
+        : (props.expenses.length === 1 ? <p>Viewing {props.expenses.length} Expense totaling {formattedExpensesTotal}</p>
+            : <p>Viewing {props.expenses.length} Expenses totaling {formattedExpensesTotal}</p>)
+        
+    } 
        </div>
    );
 

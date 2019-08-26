@@ -43,7 +43,7 @@ const mapStateToProps = (state, props) => {
 const mapDispatchToProps = (dispatch, props) => {
     return {
         editExpense: (id,expense) => { dispatch(editExpense(id,expense)) },
-        removeExpense: (data) => {dispatch(deleteExpense(data))}
+        removeExpense: (data) => {dispatch(removeExpense(data))}
     };
 };
     
