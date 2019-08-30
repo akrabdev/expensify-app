@@ -1,7 +1,8 @@
+import { database } from "firebase";
+
 //
 // Object 
 //
-
 
 const Person = {
     name: 'Mike',
@@ -12,9 +13,9 @@ const Person = {
     }
 };
 
-const {name: firstName = "Anonymous", age} = Person;   // : reName ,  = giving default
+const {abc,cdf} = Person;   // : reName ,  = giving default
 
-const {city, temp: temperature } =  Person.location
+const {city, temp: temperatdeure } =  Person.location
 
 console.log(`My name is ${firstName}`);
 
@@ -30,3 +31,5 @@ const item = ['Coffee (hot)', '$2.00', '$2.50', '2.75'];
 const [itemName, ,meduimPrice] = item;
 
 console.log(`A meduim ${itemName} costs ${meduimPrice}`);
+
+
