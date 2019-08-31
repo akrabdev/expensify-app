@@ -35,3 +35,8 @@ test('should not edit any expense by passing invalid id', () => {
     const state = expensesReducer(expenses,{type: 'EDIT_EXPENSE', id: '-1', update: {description: 'new rent'}});
     expect(state).toEqual(expenses);
 });
+
+test('should set expenses, with', () => {
+    const state = expensesReducer(expenses, {type: 'SET_EXPENSES',expenses: expenses[2]});
+    expect(state).toEqual(expenses[2]);
+});
