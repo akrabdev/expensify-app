@@ -5,7 +5,9 @@ import {
     startAddExpense, 
     setExpenses, 
     startSetExpense,
-    startRemoveExpense} from '../../actions/expenses';
+    startRemoveExpense,
+    startEditExpense
+} from '../../actions/expenses';
 import expenses from '../fixtures/expenses';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -165,6 +167,24 @@ test('should startRemoveExpense by deleting from db and updating the state', (do
         expect(snapshot.val()).toBeFalsy();
         done(); 
 
+    });
+
+});
+
+test('should startEditExpense from db', (done) => {
+    const store = createMockStore({});
+    store.dispatch(startEditExpense(expenses[0].id,{description: 'updated'})).then(() => {
+        const actions = store.getActions();
+        console.log(actions[0]);
+        expect(actions[0]).toEqual({
+            type: 'EDIT_EXPENSE',
+            id: expenses[0].id,
+            update: {
+                description: 'updated',
+            }
+            
+        }); 
+        done();   
     });
 
 });
