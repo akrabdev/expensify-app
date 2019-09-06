@@ -175,7 +175,6 @@ test('should startEditExpense from db', (done) => {
     const store = createMockStore({});
     store.dispatch(startEditExpense(expenses[0].id,{description: 'updated'})).then(() => {
         const actions = store.getActions();
-        console.log(actions[0]);
         expect(actions[0]).toEqual({
             type: 'EDIT_EXPENSE',
             id: expenses[0].id,
