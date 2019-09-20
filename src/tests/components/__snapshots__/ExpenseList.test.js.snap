@@ -1,38 +1,92 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render ExpenseList with expenses 1`] = `
-<div>
-  <ExpenseListItem
-    amount={1500}
-    createdAt={0}
-    description="coffee"
-    id="1"
-    key="1"
-    note=""
-  />
-  <ExpenseListItem
-    amount={75000}
-    createdAt={345600000}
-    description="rent"
-    id="2"
-    key="2"
-    note=""
-  />
-  <ExpenseListItem
-    amount={90000}
-    createdAt={-345600000}
-    description="car maintanence"
-    id="3"
-    key="3"
-    note="next checkup on 19/2/2020"
-  />
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Expenses
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Expesne
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <ExpenseListItem
+      amount={1500}
+      createdAt={0}
+      description="coffee"
+      id="1"
+      key="1"
+      note=""
+    />
+    <ExpenseListItem
+      amount={75000}
+      createdAt={345600000}
+      description="rent"
+      id="2"
+      key="2"
+      note=""
+    />
+    <ExpenseListItem
+      amount={90000}
+      createdAt={-345600000}
+      description="car maintanence"
+      id="3"
+      key="3"
+      note="next checkup on 19/2/2020"
+    />
+  </div>
 </div>
 `;
 
 exports[`should render no items paragrph when  expenses array length = 0 1`] = `
-<div>
-  <p>
-    No items found
-  </p>
+<div
+  className="content-container"
+>
+  <div
+    className="list-header"
+  >
+    <div
+      className="show-for-mobile"
+    >
+      Expenses
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Expesne
+    </div>
+    <div
+      className="show-for-desktop"
+    >
+      Amount
+    </div>
+  </div>
+  <div
+    className="list-body"
+  >
+    <div
+      className="list-item list-item--message"
+    >
+      <span>
+        No items found
+      </span>
+    </div>
+  </div>
 </div>
 `;

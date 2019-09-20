@@ -1,19 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render expense item from expenses array 1`] = `
-<div>
-  <Link
-    replace={false}
-    to="/edit/2"
-  >
-    <h3>
+<Link
+  className="list-item"
+  replace={false}
+  to="/edit/2"
+>
+  <div>
+    <h3
+      className="list-item__title"
+    >
       rent
     </h3>
-  </Link>
-  <p>
-    $750.00
-    -
-    January 5th, 1970
-  </p>
-</div>
+    <span
+      className="list-item__subtitle"
+    >
+      January 5th, 1970
+    </span>
+  </div>
+  <div>
+    <h3
+      className="list-item__data"
+    >
+      $750.00
+    </h3>
+  </div>
+</Link>
 `;

@@ -1,0 +1,20 @@
+.button {
+    background: $blue;
+    border: none; //remove the grey border
+    color: white;
+    display: inline-block; //vertical margin and padding taken into effect
+    font-size: $font-size-large;
+    font-weight: 300;
+    line-height: 1;
+    padding: $s-size;
+    text-decoration: none;
+   
+}
+
+.button--link {
+    background: none;
+}
+
+.button--secondary {
+    background: #888888;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 import numeral from 'numeral';
 import getVisibleExpenses from '../selectors/expenses';
 import getExpensesTotal from '../selectors/getExpensesTotal';
@@ -8,12 +9,19 @@ import getExpensesTotal from '../selectors/getExpensesTotal';
 export const ExpenseSummary = (props) => {
     const formattedExpensesTotal = numeral(getExpensesTotal(props.expenses) / 100).format('$0,0.00');
    return( 
-       <div> 
-       {props.expenses.length === 0 ? <p>No Expenses found matching </p> 
-        : (props.expenses.length === 1 ? <p>Viewing {props.expenses.length} Expense totaling {formattedExpensesTotal}</p>
-            : <p>Viewing {props.expenses.length} Expenses totaling {formattedExpensesTotal}</p>)
+       <div className="page-header">
+        <div className="content-container">
+        {
+           props.expenses.length === 0 ? <h1 className="page-header__title">No Expenses found matching </h1> 
+        : (props.expenses.length === 1 ?
+             <h1 className="page-header__title">Viewing <span>{props.expenses.length}</span> Expense totaling <span>{formattedExpensesTotal}</span></h1>
+            :<h1 className="page-header__title">Viewing <span>{props.expenses.length}</span> Expenses totaling <span>{formattedExpensesTotal}</span></h1>)
         
-    } 
+        }
+        <div className="page-header__actions">
+         <Link className="button" to="/create">Add Expense</Link>
+        </div>
+        </div>
        </div>
    );
 
